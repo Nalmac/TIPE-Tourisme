@@ -1,3 +1,5 @@
 __pycache__/
 neat_checkpoints
 neat-checkpoint-*
+*.odt#
+*.ods#
