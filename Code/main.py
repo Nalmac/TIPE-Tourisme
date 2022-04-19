@@ -1,4 +1,4 @@
-from Tests.City1 import SITES,ADJACENCE,TRAJETS
+from Tests.City2 import SITES,ADJACENCE,TRAJETS
 from random import randint
 import neat
 import os
@@ -33,7 +33,7 @@ def eval_guide(genomes, config):
                 visites.append(lieu_actuel)
             else :
                 temps -= 300
-        if cout > BUDGET:
+        if cout > BUDGET or len(visites) <= 2:
             genome.fitness = 0
         else :
             genome.fitness = (DUREE - temps)/cout
@@ -84,14 +84,14 @@ def run(config_file):
     print(visites)
 
 def cleanup():
-    path = "neat_checkpoints/checkpoint{}".format(datetime.datetime.now())
+    path = "Code/neat_checkpoints/checkpoint{}".format(datetime.datetime.now())
     os.mkdir(path)
     for target in os.listdir():
         if target[:15] == "neat-checkpoint":
-            os.rename(target, "neat_checkpoints/{}".format(path + "/" + target))
+            os.rename(target, "Code/neat_checkpoints/{}".format(path + "/" + target))
 
 if __name__ == '__main__':
     local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, 'neat.conf')
+    config_path = os.path.join(local_dir, 'City2.conf')
     run(config_path)
     cleanup()
