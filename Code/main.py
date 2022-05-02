@@ -1,9 +1,10 @@
-from Tests.City2 import SITES,ADJACENCE,TRAJETS
+from Utils.FileUtils import load_city
 from random import randint
 import neat
 import os
 import datetime
 
+SITES,ADJACENCE,TRAJETS = load_city("Tests/City2.json")
 
 DUREE = 28800 #8h en secondes
 BUDGET = 40 #40 euros la journée

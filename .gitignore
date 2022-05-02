@@ -3,3 +3,4 @@ neat_checkpoints
 neat-checkpoint-*
 *.odt#
 *.ods#
+*.conf.backup
